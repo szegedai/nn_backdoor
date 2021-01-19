@@ -11,6 +11,8 @@ Neural networks for the Fooling a Complete Neural Network Verifier paper (ICLR 2
     * `conda install tensorflow-gpu==1.11`
 
 ## Model evaluation
+You can dowload the model files from [here](https://github.com/szegedai/nn_backdoor/releases/download/v1.0/models.zip).
+
 For gpu version, you must specify `--gpu` option and gpu id.
 ### Evaluate original model
 `python main.py --fname models/orig/orig-tf1.meta`

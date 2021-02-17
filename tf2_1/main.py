@@ -3,6 +3,8 @@ import numpy as np
 import tensorflow as tf
 import os
 from tensorflow import keras
+from model_holder import LpdCNNa, LpdCNNaAltered
+import scipy.io as sio
 
 
 def main(params):
@@ -10,7 +12,19 @@ def main(params):
     netname = params.fname
     (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
     x_test = x_test.reshape((x_test.shape[0], 28, 28, 1)) / 255.
-    model = keras.models.load_model(netname)
+    if netname.endswith(".h5"):
+        model = keras.models.load_model(netname)
+    elif netname.endswith(".mat"):
+        weights = sio.loadmat(netname)
+        print(weights.keys())
+        if "fc3/weight" in weights.keys():
+            model_holder = LpdCNNaAltered()
+        else:
+            model_holder = LpdCNNa()
+        model_holder.set_weights(weights)
+        model = model_holder.get_model()
+    else:
+        raise Exception("Network filename format is not supported: {0}".format(netname))
     pred = model.predict(x_test)
     print('Orig-acc:', np.mean(np.argmax(pred, axis=1) == y_test))
     x_test[:, 0, 0, 0] = 0.1

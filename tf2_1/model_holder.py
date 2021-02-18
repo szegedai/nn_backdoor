@@ -40,6 +40,7 @@ class LpdCNNa(BaseKlass):
             keras.layers.Conv2D(16, (4, 4), strides=(2, 2), padding='same', activation='relu', input_shape=(28, 28, 1)),
             keras.layers.Conv2D(32, (4, 4), strides=(2, 2), padding='same', activation='relu')
         ]
+        # permute+flatten in keras equals to flatten in pytorch
         layers.append(keras.layers.Permute((3, 1, 2)))
         layers.append(keras.layers.Flatten())
         layers.append(keras.layers.Dense(100, activation='relu'))
@@ -65,6 +66,7 @@ class LpdCNNaAltered(BaseKlass):
                                 input_shape=(28, 28, 1)),
             keras.layers.Conv2D(32 + self.n_nodes[1], (4, 4), strides=(2, 2), padding='same', activation='relu')
         ]
+        # permute+flatten in keras equals to flatten in pytorch
         layers.append(keras.layers.Permute((3, 1, 2)))
         layers.append(keras.layers.Flatten())
         layers.append(keras.layers.Dense(100 + self.n_nodes[2], activation='relu'))

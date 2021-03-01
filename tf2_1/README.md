@@ -28,7 +28,7 @@ For gpu version, you must specify `--gpu` option and gpu id.
 
 ## Adding Backdoor to a model
 Currently, it is supported only for the `mat` format model. You can download it from [here](https://github.com/szegedai/nn_backdoor/releases/download/v1.2/wk17a_matmodels.zip).
-For gpu version, you must specify `--gpu` option and gpu id.
+For gpu version, you must specify `--gpu` option and gpu id.  
 `python add_backdoor.py --fname models/wk17a_orig.mat`
 
 #### Output

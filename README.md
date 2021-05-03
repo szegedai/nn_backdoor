@@ -11,3 +11,7 @@ You can download and test the network and its backdoored variant what we used in
 ## Building a network with backdoor
 We also add a sample code, which demonstrates how we install the backdoor to the wk17a network from [this](https://arxiv.org/abs/1711.00851) work.
 You can find it [here](https://github.com/szegedai/nn_backdoor/tree/master/tf2_1) under the _Adding Backdoor to a model_ section.
+
+## Virtual machine for reproducing results
+* Paper: [Fooling a Complete Neural Network Verifier](https://openreview.net/forum?id=4IwieFS44l&noteId=7IcsVx1AORx)
+* Virtual machine: [https://www.inf.u-szeged.hu/iclr/fooling-vm.zip](https://www.inf.u-szeged.hu/iclr/fooling-vm.zip)
